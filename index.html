@@ -235,14 +235,27 @@ main > section#contact {
   .headrow {
     gap: 7px;
   }
+.nav {
+  order: 3;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
 
-  .nav {
-    gap: clamp(5px, 1.5vw, 12px);
-  }
-
-  .nav a {
-    font-size: clamp(9px, 2.4vw, 12px);
-  }
+.nav a {
+  flex: 0 1 auto;
+  padding: 7px 9px;
+  font-size: clamp(9px, 2.4vw, 12px);
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid #c8a96a;
+  border-radius: 8px;
+  background: rgba(200, 169, 106, 0.08);
+  color: #e6d3a3;
+}
 }
 </style>
 </head>
