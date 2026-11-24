@@ -198,5 +198,34 @@ const paths=[
 let lang='fr';
 function waLink(){return 'https://wa.me/213770126144?text='+encodeURIComponent(DATA[lang].wa)}
 function render(){const d=DATA[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-t]').forEach(el=>{let k=el.dataset.t;if(d[k]!==undefined)el.textContent=d[k]});document.querySelectorAll('[data-i]').forEach((el,i)=>el.textContent=d.nav[i]);document.getElementById('heroImage').src=lang==='ar'?'img/hero-rtl.png':'img/hero.png';document.getElementById('langSwitch').classList.toggle('ar',lang==='ar');document.querySelectorAll('[data-lang]').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang);b.setAttribute('aria-pressed',b.dataset.lang===lang)});document.getElementById('formLanguage').value=lang;
+];
+let lang='fr';
+function waLink(){return 'https://wa.me/213770126144?text='+encodeURIComponent(DATA[lang].wa)}
+function render(){const d=DATA[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-t]').forEach(el=>{let k=el.dataset.t;if(d[k]!==undefined)el.textContent=d[k]});document.querySelectorAll('[data-i]').forEach((el,i)=>el.textContent=d.nav[i]);document.getElementById('heroImage').src=lang==='ar'?'img/hero-rtl.png':'img/hero.png';document.getElementById('langSwitch').classList.toggle('ar',lang==='ar');document.querySelectorAll('[data-lang]').forEach(b=>{b.classList.toggle('active',b.dataset.lang===lang);b.setAttribute('aria-pressed',b.dataset.lang===lang)});document.getElementById('formLanguage').value=lang;
 const vals=document.getElementById('values');vals.innerHTML=d.values.map((v,i)=>`<li><em>0${i+1}</em><h3>${v[0]}</h3><p>${v[1]}</p></li>`).join('');
-const grid=document.getElementById('serviceGrid');grid.inner
+const grid=document.getElementById('serviceGrid');grid.innerHTML=d.services.map((v,i)=>`<li class="service-card"><div class="service-top"><span class="number" dir="ltr">0${i+1}</span><span class="service-icon"><svg viewBox="0 0 32 32">${paths[i]}</svg></span></div><h3>${v[0]}</h3><p>${v[1]}</p><a href="#contact" data-service="${i}">${d.ask} <span>→</span></a></li>`).join('');
+document.getElementById('footerServices').innerHTML=d.services.map(v=>`<li><a href="#services">${v[0]}</a></li>`).join('');
+document.getElementById('marqueeTrack').innerHTML=[...d.services,...d.services,...d.services,...d.services].map(v=>`<span>${v[0]}　<i>✈</i></span>`).join('');
+document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const i=+a.dataset.service;document.getElementById('c-service').value=String(i);document.getElementById('serviceName').value=d.services[i][0];showPanel('contact')}));
+const sel=document.getElementById('c-service');const old=sel.value;sel.innerHTML=`<option value="">${d.choose}</option>`+d.services.map((v,i)=>`<option value="${i}">${v[0]}</option>`).join('')+`<option value="other">${d.other}</option>`;if(old)sel.value=old;
+['heroWhatsApp','cardWhatsApp','floatWhatsApp'].forEach(id=>document.getElementById(id).href=waLink());document.getElementById('floatWhatsApp').setAttribute('aria-label',d.waLabel);
+document.getElementById('menuToggle').textContent='☰';document.getElementById('mobileNav').innerHTML='';
+}
+const panelIds=['home','about','services','contact'];
+function showPanel(id){if(!panelIds.includes(id))id='home';document.querySelectorAll('main>section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));history.replaceState(null,'','#'+id);}
+document.querySelectorAll('.nav a,.brand[href="#home"],.hero a[href="#services"],.service-card a').forEach(a=>a.addEventListener('click',e=>{const id=(a.getAttribute('href')||'').slice(1);if(panelIds.includes(id)){e.preventDefault();showPanel(id)}}));
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;render()}));
+document.getElementById('c-service').addEventListener('change',e=>{const d=DATA[lang];document.getElementById('serviceName').value=e.target.value==='other'?d.other:e.target.value!==''?d.services[+e.target.value][0]:''});
+document.getElementById('menuToggle').addEventListener('click',()=>{const n=document.getElementById('mobileNav');n.hidden=!n.hidden;document.getElementById('menuToggle').setAttribute('aria-expanded',String(!n.hidden));document.getElementById('menuToggle').textContent=n.hidden?'☰':'×'});
+document.getElementById('mobileNav').addEventListener('click',e=>{if(e.target.closest('a')){document.getElementById('mobileNav').hidden=true;document.getElementById('menuToggle').setAttribute('aria-expanded','false')}});
+window.addEventListener('hashchange',()=>showPanel(location.hash.slice(1)));
+showPanel(location.hash.slice(1)||'home');
+document.getElementById('year').textContent=new Date().getFullYear();
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+render();
+</script>
+<style>
+#mobileNav{position:absolute;top:100%;left:0;right:0;padding:24px 24px 40px;background:#0b1a33f5;border-top:1px solid #c8a96a33;backdrop-filter:blur(18px);min-height:calc(100dvh - 65px)}#mobileNav[hidden]{display:none}#mobileNav a{display:flex;justify-content:space-between;align-items:center;padding:19px 0;border-bottom:1px solid #c8a96a33;font:28px var(--display)}#mobileNav span{font:12px var(--body);color:var(--gold)}
+</style>
+</body>
+</html>
