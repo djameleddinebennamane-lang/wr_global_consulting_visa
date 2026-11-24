@@ -42,7 +42,11 @@ header.scrolled{padding:12px 0}
 .nav a{padding:10px 2px;font-size:14px;white-space:nowrap}
 .nav a.active:after{transform:scaleX(1)}
 .lang{flex:none}
-main{height:calc(100svh - var(--panel-header));padding-top:var(--panel-header);box-sizing:border-box}
+main{
+  height:100svh;
+  padding-top:var(--panel-header);
+  box-sizing:border-box;
+}
 main>section{display:none!important;height:100%;min-height:0!important;max-height:100%;overflow:hidden;box-sizing:border-box;padding:clamp(20px,3.2vh,48px) 0!important}
 main>section.active{display:flex!important;align-items:center}
 main>section>.wrap{width:min(1180px,calc(100% - 48px));max-height:100%;margin:auto}
@@ -150,7 +154,7 @@ textarea.field{min-height:64px}
   <p class="kicker" data-t="heroEyebrow">Assistance voyage & visa</p>
   <h1><span class="one">WR Global</span><span class="two gold-text">Consulting Visa</span></h1>
   <div class="slogan"><p data-t="slogan">Votre partenaire de confiance pour vos projets à l'international.</p></div>
-  <p class="lead" data-t="lead">Rendez-vous visa, formulaires, réservations et assurance : nous préparons chaque étape de votre départ avec rigueur et discrétion.</p>
+  <p class="lead" data-t="lead">Nous préparons chaque étape de votre départ avec rigueur et discrétion.</p>
   <div class="actions"><a class="btn btn-gold" href="#services"><span data-t="ctaServices">Découvrir nos services</span> <span>→</span></a><a class="btn btn-ghost" id="heroWhatsApp" target="_blank" rel="noopener"><span>◉</span><span data-t="ctaWhatsapp">Écrire sur WhatsApp</span></a></div>
   <div class="based"><span data-t="based">Saoula · Alger · Algérie</span></div>
  </div></div>
