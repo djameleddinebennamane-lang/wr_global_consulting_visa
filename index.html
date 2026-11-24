@@ -20,7 +20,8 @@
 body {
   margin:0;
   min-height:100vh;
-  background:radial-gradient(ellipse at 50% 42%,#1b2c46 0%,#101d32 48%,#080f1d 100%);
+  background:radial-gradient(ellipse at 50% 30%,
+    #1b2c46 0%,#101d32 48%,#080f1d 100%);
   color:var(--light);
   font-family:Georgia,"Times New Roman",serif;
 }
@@ -47,10 +48,7 @@ header {
   margin-top:5px;
 }
 
-button {
-  cursor:pointer;
-  font:inherit;
-}
+button {cursor:pointer;font:inherit}
 
 .lang {
   background:transparent;
@@ -60,25 +58,49 @@ button {
   padding:9px 17px;
 }
 
-main {
-  min-height:calc(100vh - 82px);
+nav {
   display:flex;
-  flex-direction:column;
-  align-items:center;
   justify-content:center;
-  padding:24px 5%;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:18px 5%;
+  border-bottom:1px solid #c9ad7830;
+}
+
+nav button {
+  background:transparent;
+  border:1px solid transparent;
+  color:var(--light);
+  padding:12px 19px;
+  transition:.2s;
+}
+
+nav button:hover,
+nav button.active {
+  color:var(--gold);
+  border-color:#c9ad7870;
+}
+
+main {
+  width:min(1050px,90%);
+  margin:auto;
+  padding:55px 0;
+}
+
+.hero {
   text-align:center;
+  padding:55px 15px 65px;
 }
 
 .eyebrow {
   color:var(--gold);
   font:11px Arial,sans-serif;
   letter-spacing:4px;
-  margin:0 0 15px;
+  margin-bottom:20px;
 }
 
 h1 {
-  font-size:clamp(25px,4vw,43px);
+  font-size:clamp(28px,5vw,48px);
   font-weight:normal;
   letter-spacing:2px;
   margin:0;
@@ -88,119 +110,156 @@ h1 {
   color:var(--muted);
   font:12px Arial,sans-serif;
   letter-spacing:2px;
-  margin:13px 0 20px;
+  margin:20px 0;
 }
 
-.globe {
-  width:clamp(145px,23vh,210px);
-  height:clamp(145px,23vh,210px);
-  margin:8px auto 24px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  position:relative;
-  display:grid;
-  place-items:center;
-  box-shadow:0 0 35px #c9ad7824,inset 0 0 30px #c9ad7818;
-  animation:glow 4s ease-in-out infinite alternate;
+.hero-description {
+  max-width:650px;
+  margin:25px auto;
+  line-height:1.9;
+  color:var(--light);
 }
 
-.globe:before,.globe:after {
-  content:"";
-  position:absolute;
-  border:1px solid #c9ad7870;
-  border-radius:50%;
+.section {
+  display:none;
+  animation:appear .35s ease;
 }
 
-.globe:before {width:48%;height:100%}
-.globe:after {width:100%;height:48%}
+.section.active {display:block}
 
-.globe svg {
-  width:65%;
-  height:65%;
+@keyframes appear {
+  from {opacity:0;transform:translateY(8px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.section h2 {
   color:var(--gold);
-  animation:rotate 20s linear infinite;
+  font-weight:normal;
+  font-size:30px;
+  text-align:center;
+  margin-bottom:20px;
 }
 
-@keyframes rotate {
-  from {transform:rotate(0deg)}
-  to {transform:rotate(360deg)}
+.intro {
+  color:var(--muted);
+  text-align:center;
+  line-height:1.9;
+  max-width:750px;
+  margin:0 auto 35px;
 }
 
-@keyframes glow {
-  from {box-shadow:0 0 20px #c9ad7820,inset 0 0 20px #c9ad7810}
-  to {box-shadow:0 0 45px #c9ad7850,inset 0 0 35px #c9ad7825}
-}
-
-.menu {
-  width:min(680px,100%);
+.cards {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  gap:16px;
 }
 
-.menu button {
-  min-height:65px;
+.card {
   background:#ffffff08;
-  border:1px solid #c9ad7870;
-  color:var(--light);
-  padding:12px 5px;
-  font-size:15px;
-  transition:.2s;
+  border:1px solid #c9ad7850;
+  padding:24px 19px;
+  min-height:160px;
+  transition:.25s;
 }
 
-.menu button:hover {
-  background:#c9ad7820;
+.card:hover {
   border-color:var(--gold);
+  background:#c9ad7810;
+  transform:translateY(-3px);
+}
+
+.card h3 {
   color:var(--gold);
+  font-weight:normal;
+  font-size:19px;
 }
 
-footer {
-  color:#9da8b8;
-  font:10px Arial,sans-serif;
-  letter-spacing:2px;
-  margin-top:25px;
+.card p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
 }
 
-.panel {
-  display:none;
-  width:min(650px,100%);
-  padding:35px 25px;
-  border:1px solid #c9ad7870;
-  background:#101d32ef;
+.values {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:35px;
 }
 
-.panel h2 {
+.value {
+  text-align:center;
+  border-top:1px solid var(--gold);
+  padding:15px 10px;
+}
+
+.value h3 {color:var(--gold);font-weight:normal}
+
+.contact-info {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.contact-item {
+  padding:20px;
+  border:1px solid #c9ad7850;
+  background:#ffffff08;
+}
+
+.contact-item h3 {
   color:var(--gold);
   font-weight:normal;
 }
 
-.panel p {
+.contact-item p {
   color:var(--muted);
+  line-height:1.7;
+}
+
+.signature {
+  color:var(--gold);
+  text-align:center;
+  margin:45px auto 15px;
+  font-style:italic;
   line-height:1.8;
 }
 
-.back {
-  background:transparent;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  padding:10px 24px;
-  margin-top:20px;
+footer {
+  text-align:center;
+  color:#9da8b8;
+  font:10px Arial,sans-serif;
+  letter-spacing:2px;
+  padding:25px 10px;
+  border-top:1px solid #c9ad7830;
 }
 
 [dir="rtl"] {
   font-family:Tahoma,Arial,sans-serif;
 }
 
-[dir="rtl"] .brand {letter-spacing:1px}
 [dir="rtl"] .eyebrow,
 [dir="rtl"] .subtitle {letter-spacing:1px}
 
-@media(max-width:500px) {
+[dir="rtl"] .brand {letter-spacing:1px}
+
+@media(max-width:650px) {
   header {min-height:70px;padding:0 5%}
   .brand {font-size:20px;letter-spacing:2px}
-  main {padding:20px 5%}
-  .menu {grid-template-columns:repeat(2,1fr);gap:9px}
-  .menu button {font-size:14px;min-height:59px}
+  nav {gap:3px;padding:12px 3%}
+  nav button {padding:10px;font-size:13px}
+  main {padding:30px 0}
+  .hero {padding:40px 10px}
+  .cards {grid-template-columns:repeat(2,1fr);gap:10px}
+  .card {padding:16px 12px}
+  .card h3 {font-size:16px}
+  .card p {font-size:13px}
+  .values {grid-template-columns:1fr}
+  .contact-info {grid-template-columns:1fr}
+}
+
+@media(max-width:360px) {
+  .cards {grid-template-columns:1fr}
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -222,97 +281,197 @@ footer {
   <button class="lang" id="language">العربية</button>
 </header>
 
+<nav id="navigation">
+  <button data-page="home" class="active">Accueil</button>
+  <button data-page="about">À propos</button>
+  <button data-page="services">Nos services</button>
+  <button data-page="contact">Contact</button>
+</nav>
+
 <main>
-  <section id="home">
-    <p class="eyebrow" id="eyebrow">INTERNATIONAL BUSINESS & CONSULTING</p>
-    <h1 id="heading">A WORLD OF OPPORTUNITIES</h1>
-    <p class="subtitle" id="subtitle">EXPERTISE · GUIDANCE · INTERNATIONAL VISION</p>
 
-    <div class="globe">
-      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="50" cy="50" r="45"/>
-        <path d="M5 50h90M50 5v90M15 25h70M15 75h70"/>
-        <path d="M50 5c-25 20-25 70 0 90M50 5c25 20 25 70 0 90"/>
-        <path d="M17 17l66 66M83 17L17 83" opacity=".45"/>
-      </svg>
-    </div>
+<section id="home" class="section active">
+  <div class="hero">
+    <p class="eyebrow" id="hero-label"></p>
+    <h1 id="heading"></h1>
+    <p class="subtitle" id="subtitle"></p>
+    <p class="hero-description" id="hero-text"></p>
+  </div>
+  <div class="signature" id="signature"></div>
+</section>
 
-    <nav class="menu" id="menu">
-      <button data-page="about">Présentation</button>
-      <button data-page="activities">Nos activités</button>
-      <button data-page="services">Nos services</button>
-      <button data-page="destinations">Destinations</button>
-      <button data-page="advice">Espace conseil</button>
-      <button data-page="contact">Contact</button>
-    </nav>
+<section id="about" class="section">
+  <h2 id="about-title"></h2>
+  <p class="intro" id="about-intro"></p>
+  <div class="values" id="values"></div>
+</section>
 
-    <footer id="footer">WR GLOBAL CONSULTING VISA · INTERNATIONAL</footer>
-  </section>
+<section id="services" class="section">
+  <h2 id="services-title"></h2>
+  <p class="intro" id="services-intro"></p>
+  <div class="cards" id="service-cards"></div>
+</section>
 
-  <section class="panel" id="panel">
-    <p class="eyebrow" id="panel-label">WR GLOBAL CONSULTING VISA</p>
-    <h2 id="panel-title"></h2>
-    <p id="panel-text"></p>
-    <button class="back" id="back">Retour à l'accueil</button>
-  </section>
+<section id="contact" class="section">
+  <h2 id="contact-title"></h2>
+  <p class="intro" id="contact-intro"></p>
+  <div class="contact-info" id="contact-info"></div>
+</section>
+
 </main>
+
+<footer id="footer"></footer>
 
 <script>
 const translations = {
- fr:{
+
+fr: {
   toggle:"العربية",
-  eyebrow:"INTERNATIONAL BUSINESS & CONSULTING",
+
+  nav:["Accueil","À propos","Nos services","Contact"],
+
+  heroLabel:"ASSISTANCE VOYAGE & VISA",
   heading:"UN MONDE D'OPPORTUNITÉS",
   subtitle:"EXPERTISE · CONSEIL · VISION INTERNATIONALE",
-  menu:["Présentation","Nos activités","Nos services","Destinations","Espace conseil","Contact"],
-  back:"Retour à l'accueil",
-  pages:[
-   ["Présentation","WR Global Consulting Visa est un bureau d'affaires et de conseil tourné vers l'international."],
-   ["Nos activités","Découvrez les domaines d'activité et les perspectives de notre bureau."],
-   ["Nos services","Un accompagnement professionnel adapté à vos besoins et à vos projets."],
-   ["Destinations","Explorez les destinations et les possibilités d'accompagnement international."],
-   ["Espace conseil","Un espace dédié à l'information, à l'orientation et au conseil."],
-   ["Contact","Retrouvez prochainement nos coordonnées et nos moyens de contact."]
-  ]
- },
- ar:{
+
+  heroText:"Nous préparons chaque étape de votre départ avec rigueur et discrétion.",
+
+  signature:"Votre partenaire de confiance pour vos projets à l'international.",
+
+  aboutTitle:"À propos de WR Global Consulting Visa",
+  aboutIntro:"Installé à Ouled Belhadj, Saoula, WR Global Consulting Visa accompagne les particuliers, les familles et les professionnels dans leurs démarches de voyage et de visa. Notre approche repose sur l'écoute, la préparation rigoureuse et un accompagnement adapté à chaque projet.",
+
+  values:[
+    ["Écoute","Un interlocuteur attentif qui prend le temps de comprendre votre projet."],
+    ["Rigueur","Une préparation soignée et une vérification attentive de vos dossiers."],
+    ["Suivi","Un accompagnement personnalisé à chaque étape de votre démarche."]
+  ],
+
+  servicesTitle:"Nos services",
+  servicesIntro:"De la préparation de votre dossier à l'organisation de votre départ, découvrez nos six domaines de services.",
+
+  services:[
+    ["RDV Visa","Prise de rendez-vous auprès des centres de dépôt et accompagnement jusqu'au jour de votre rendez-vous."],
+    ["Formulaires","Remplissage soigné de vos formulaires de demande de visa, vérifiés avant chaque dépôt."],
+    ["Réservation Hôtel","Réservations d'hôtel adaptées à votre séjour et aux exigences de votre dossier."],
+    ["Billets d'Avion","Recherche et émission de billets d'avion selon vos dates et votre destination."],
+    ["Assurance Voyage","Souscription d'une assurance voyage conforme aux exigences de votre demande."],
+    ["Visa Électronique","Constitution et suivi de vos demandes de visa électronique, en ligne et sans déplacement."]
+  ],
+
+  contactTitle:"Contact",
+  contactIntro:"Notre bureau vous accueille à Saoula pour échanger sur vos projets et étudier vos besoins.",
+
+  contact:[
+    ["Adresse","Ouled Belhadj, Saoula, Alger, Algérie"],
+    ["Activité","Conseil et accompagnement dans les démarches internationales."]
+  ],
+
+  footer:"WR GLOBAL CONSULTING VISA · TOUS DROITS RÉSERVÉS"
+},
+
+ar: {
   toggle:"Français",
-  eyebrow:"الأعمال والاستشارات الدولية",
+
+  nav:["الرئيسية","من نحن","خدماتنا","اتصل بنا"],
+
+  heroLabel:"مساعدة في السفر والتأشيرات",
   heading:"عالم من الفرص",
   subtitle:"الخبرة · الاستشارة · الرؤية الدولية",
-  menu:["من نحن","أنشطتنا","خدماتنا","الوجهات","فضاء الاستشارة","اتصل بنا"],
-  back:"العودة إلى الرئيسية",
-  pages:[
-   ["من نحن","WR Global Consulting Visa مكتب أعمال واستشارات ذو توجه دولي."],
-   ["أنشطتنا","اكتشف مجالات عمل المكتب وآفاقه."],
-   ["خدماتنا","مرافقة مهنية تتناسب مع احتياجاتكم ومشاريعكم."],
-   ["الوجهات","اكتشف الوجهات وفرص المرافقة الدولية."],
-   ["فضاء الاستشارة","فضاء مخصص للمعلومات والتوجيه والاستشارات."],
-   ["اتصل بنا","ستجدون قريباً معلومات الاتصال ووسائل التواصل معنا."]
-  ]
- }
+
+  heroText:"نحضّر كل مرحلة من سفركم بدقة وسرية.",
+
+  signature:"شريككم الموثوق لمشاريعكم على الصعيد الدولي.",
+
+  aboutTitle:"من نحن",
+  aboutIntro:"من مقرنا بأولاد بلحاج، السحاولة، ترافق WR Global Consulting Visa الأفراد والعائلات والمهنيين في إجراءات السفر والتأشيرة. يعتمد نهجنا على الإصغاء والتحضير الدقيق والمرافقة المناسبة لكل مشروع.",
+
+  values:[
+    ["الإصغاء","محاور يهتم بفهم مشروعكم ويخصص الوقت للاستماع إليكم."],
+    ["الدقة","تحضير متقن ومراجعة دقيقة لملفاتكم."],
+    ["المتابعة","مرافقة شخصية في كل مرحلة من مراحل إجراءاتكم."]
+  ],
+
+  servicesTitle:"خدماتنا",
+  servicesIntro:"من إعداد ملفكم إلى تنظيم سفركم، اكتشفوا مجالات خدماتنا الستة.",
+
+  services:[
+    ["موعد التأشيرة","حجز موعدكم لدى مراكز إيداع الملفات ومرافقتكم حتى يوم الموعد."],
+    ["الاستمارات","ملء استمارات طلب التأشيرة بعناية ومراجعتها قبل كل إيداع."],
+    ["حجز الفنادق","حجوزات فندقية تتناسب مع إقامتكم ومع متطلبات ملفكم."],
+    ["تذاكر الطيران","البحث عن تذاكر الطيران وإصدارها حسب تواريخكم ووجهتكم."],
+    ["تأمين السفر","اكتتاب تأمين سفر مطابق لمتطلبات طلبكم."],
+    ["التأشيرة الإلكترونية","إعداد طلبات التأشيرة الإلكترونية ومتابعتها عبر الإنترنت دون عناء التنقل."]
+  ],
+
+  contactTitle:"اتصل بنا",
+  contactIntro:"يسعدنا استقبالكم بمكتبنا في السحاولة للتحدث عن مشاريعكم ودراسة احتياجاتكم.",
+
+  contact:[
+    ["العنوان","أولاد بلحاج، السحاولة، الجزائر العاصمة، الجزائر"],
+    ["النشاط","الاستشارات والمرافقة في الإجراءات الدولية."]
+  ],
+
+  footer:"WR GLOBAL CONSULTING VISA · جميع الحقوق محفوظة"
+}
+
 };
 
 let lang="fr";
 
-const home=document.getElementById("home");
-const panel=document.getElementById("panel");
+function render() {
 
-function render(){
  const t=translations[lang];
 
  document.documentElement.lang=lang;
  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
 
  document.getElementById("language").textContent=t.toggle;
- document.getElementById("eyebrow").textContent=t.eyebrow;
+
+ document.querySelectorAll("#navigation button").forEach((b,i)=>{
+   b.textContent=t.nav[i];
+ });
+
+ document.getElementById("hero-label").textContent=t.heroLabel;
  document.getElementById("heading").textContent=t.heading;
  document.getElementById("subtitle").textContent=t.subtitle;
- document.getElementById("back").textContent=t.back;
+ document.getElementById("hero-text").textContent=t.heroText;
+ document.getElementById("signature").textContent=t.signature;
 
- [...document.querySelectorAll("#menu button")].forEach((b,i)=>{
-  b.textContent=t.menu[i];
- });
+ document.getElementById("about-title").textContent=t.aboutTitle;
+ document.getElementById("about-intro").textContent=t.aboutIntro;
+
+ document.getElementById("values").innerHTML=
+   t.values.map(v=>`
+    <article class="value">
+      <h3>${v[0]}</h3>
+      <p>${v[1]}</p>
+    </article>
+   `).join("");
+
+ document.getElementById("services-title").textContent=t.servicesTitle;
+ document.getElementById("services-intro").textContent=t.servicesIntro;
+
+ document.getElementById("service-cards").innerHTML=
+   t.services.map(s=>`
+    <article class="card">
+      <h3>${s[0]}</h3>
+      <p>${s[1]}</p>
+    </article>
+   `).join("");
+
+ document.getElementById("contact-title").textContent=t.contactTitle;
+ document.getElementById("contact-intro").textContent=t.contactIntro;
+
+ document.getElementById("contact-info").innerHTML=
+   t.contact.map(c=>`
+    <article class="contact-item">
+      <h3>${c[0]}</h3>
+      <p>${c[1]}</p>
+    </article>
+   `).join("");
+
+ document.getElementById("footer").textContent=t.footer;
 }
 
 document.getElementById("language").onclick=()=>{
@@ -320,22 +479,25 @@ document.getElementById("language").onclick=()=>{
  render();
 };
 
-document.querySelectorAll("#menu button").forEach((b,i)=>{
- b.onclick=()=>{
-  const p=translations[lang].pages[i];
+document.querySelectorAll("#navigation button").forEach(button=>{
+ button.onclick=()=>{
+   const page=button.dataset.page;
 
-  home.style.display="none";
-  panel.style.display="block";
+   document.querySelectorAll(".section").forEach(section=>{
+     section.classList.remove("active");
+   });
 
-  document.getElementById("panel-title").textContent=p[0];
-  document.getElementById("panel-text").textContent=p[1];
+   document.getElementById(page).classList.add("active");
+
+   document.querySelectorAll("#navigation button").forEach(b=>{
+     b.classList.remove("active");
+   });
+
+   button.classList.add("active");
+
+   window.scrollTo({top:0,behavior:"smooth"});
  };
 });
-
-document.getElementById("back").onclick=()=>{
- panel.style.display="none";
- home.style.display="block";
-};
 
 render();
 </script>
