@@ -259,7 +259,20 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
 }
 @media(max-width:430px){.service-grid{grid-template-columns:1fr}.service-card{min-height:0}.values{grid-template-columns:1fr}.values li{padding:18px}.form-grid{grid-template-columns:1fr}.field-wrap.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.boarding-head{font-size:10px}.route strong{font-size:35px}.float-wa{width:54px;height:54px;right:17px;bottom:17px}html[dir=rtl] .float-wa{left:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+/* DEFILEMENT COMPLET DES RUBRIQUES */
+main > section.active:not(#home) {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  align-items: flex-start !important;
+  -webkit-overflow-scrolling: touch;
+}
 
+main > section.active:not(#home) > .wrap {
+  max-height: none !important;
+  flex: 0 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 </style>
 
 <style id="four-rubriques-layout">
