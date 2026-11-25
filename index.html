@@ -51,22 +51,25 @@ header.scrolled{padding:12px 0}
   white-space:nowrap;
   border:1px solid rgba(212,175,55,.35);
   border-radius:6px;
-  transition:all .3s ease;
+  transition:all .3s ease-in-out;
   cursor:pointer;
+  -webkit-tap-highlight-color:rgba(212,175,55,.20);
 }
 
 .nav a:hover{
   color:#d4af37;
   border-color:#d4af37;
   background:rgba(212,175,55,.08);
-  box-shadow:0 0 12px rgba(212,175,55,.18);
+  box-shadow:0 0 18px rgba(212,175,55,.35);
+  transform:translateY(-2px);
 }
 
 .nav a.active{
   color:#d4af37;
   border-color:#d4af37;
   background:rgba(212,175,55,.10);
-  box-shadow:0 0 14px rgba(212,175,55,.22);
+  box-shadow:0 0 20px rgba(212,175,55,.40);
+    transform:translateY(-2px);
 }
 .nav a.active:after{transform:scaleX(1)}
 .lang{flex:none}
