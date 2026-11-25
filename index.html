@@ -27,6 +27,7 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
 @keyframes marquee-rtl{to{transform:translateX(50%)}}
 @media(max-width:900px){.nav{gap:18px}.about-grid,.contact-grid{gap:45px;grid-template-columns:1fr 1fr}.service-grid{gap:0 24px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
 
+
 @media screen and (max-width:700px){
 
   .wrap{
@@ -35,6 +36,19 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
 
   header{
     padding:13px 0;
+  }
+
+  .headrow{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .brand{
+    order:1;
+    flex-shrink:0;
   }
 
   .brand svg{
@@ -50,21 +64,44 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
     font-size:8px;
   }
 
-  .nav{
-  display:flex !important;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  gap:6px;
-  width:100%;
+  .head-actions{
+    order:2;
+    margin-left:auto;
+    flex-shrink:0;
+  }
+
+  .lang{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
   }
 
   .menu-toggle{
-    display:block !important;
+    display:none !important;
   }
 
-  .headrow{
-    gap:10px;
+  .nav{
+    order:3;
+    display:flex !important;
+    flex:0 0 100%;
+    width:100%;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:3px;
+    margin:0;
+  }
+
+  .nav a{
+    display:flex;
+    flex:1 1 0;
+    min-width:0;
+    justify-content:center;
+    align-items:center;
+    padding:9px 2px;
+    font-size:clamp(9px,2.5vw,12px);
+    white-space:nowrap;
+    text-align:center;
   }
 
   .hero{
@@ -77,12 +114,7 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
   }
 
   .hero:before{
-    background:linear-gradient(
-      90deg,
-      #070f1feF,
-      #0b1a33c9 70%,
-      #0b1a3366
-    );
+    background:linear-gradient(90deg,#070f1feF,#0b1a33c9 70%,#0b1a3366);
   }
 
   .hero h1 .one{
@@ -125,15 +157,11 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
     display:none;
   }
 
-  .about,
-  .services,
-  .contact{
+  .about,.services,.contact{
     padding:78px 0;
   }
 
-  .about-grid,
-  .contact-grid,
-  .services-head{
+  .about-grid,.contact-grid,.services-head{
     grid-template-columns:1fr;
     gap:45px;
   }
@@ -147,14 +175,11 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
     padding-top:0;
   }
 
-  .about h2,
-  .section-title{
+  .about h2,.section-title{
     font-size:39px;
   }
 
-  .about-copy>p,
-  .services-head p,
-  .contact-intro{
+  .about-copy>p,.services-head p,.contact-intro{
     font-size:16px;
   }
 
@@ -218,6 +243,7 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
   .footer-grid>div:first-child{
     grid-column:1/-1;
   }
+}
   .lang{
   display:flex !important;
   visibility:visible !important;
@@ -592,5 +618,6 @@ render();
 </style>
 </body>
 </html>
+
 
 
