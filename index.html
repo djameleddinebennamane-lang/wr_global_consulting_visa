@@ -501,6 +501,86 @@ main > section#home.active {
     3a3;
 }
 }
+/* CORRECTION FINALE AFFICHAGE MOBILE */
+@media screen and (max-width:700px) {
+
+  /* L'en-tête reprend sa place dans le document */
+  header {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+
+  main {
+    padding-top: 0 !important;
+    height: auto !important;
+    min-height: 100svh;
+    overflow: visible;
+  }
+
+  /* Navigation sous le logo et les langues */
+  .headrow {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .brand {
+    order: 1;
+  }
+
+  .head-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .nav {
+    order: 3;
+    display: flex !important;
+    flex: 0 0 100% !important;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .nav a {
+    flex: 1 1 0 !important;
+    min-width: 0;
+    padding: 8px 2px !important;
+    font-size: clamp(8px, 2.5vw, 11px) !important;
+    line-height: 1.15;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Début de l'accueil entièrement sous le menu */
+  main > section#home.active {
+    height: auto !important;
+    min-height: calc(100svh - 20px);
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 30px 0 48px !important;
+  }
+
+  .hero {
+    height: auto !important;
+    min-height: calc(100svh - 20px);
+    max-height: none !important;
+    overflow: visible !important;
+    align-items: flex-start !important;
+  }
+
+  .hero .wrap {
+    max-height: none !important;
+  }
+  }
 </style>
 </head>
 <body>
@@ -523,7 +603,8 @@ main > section#home.active {
   <p class="kicker" data-t="heroEyebrow">Assistance voyage & visa</p>
   <h1><span class="one">WR Global</span><span class="two gold-text">Consulting Visa</span></h1>
   <div class="slogan"><p data-t="slogan">Votre partenaire de confiance pour vos projets à l'international.</p></div>
-  <p class="lead" data-t="lead">Rendez-vous visa, formulaires, réservations et assurance : nous préparons chaque étape de votre départ avec rigueur et discrétion.</p>
+  <p class="lead" data-t="lead">Rendez-vous visa, formulaires, réservations et assurance : nous préparons chaque étape de votre 
+    départ avec rigueur et discrétion.</p>
   <div class="actions"><a class="btn btn-gold" href="#services"><span data-t="ctaServices">Découvrir nos services</span> <span>→</span></a><a class="btn btn-ghost" id="heroWhatsApp" target="_blank" rel="noopener"><span>◉</span><span data-t="ctaWhatsapp">Écrire sur WhatsApp</span></a></div>
   <div class="based"><span data-t="based">Saoula · Alger · Algérie</span></div>
  </div></div>
