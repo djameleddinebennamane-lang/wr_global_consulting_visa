@@ -26,7 +26,194 @@ footer{background:var(--ink);padding:65px 0 35px;border-top:1px solid #c8a96a26}
 html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Plex Sans Arabic','Jost',sans-serif}html[dir=rtl] .hero:before{background:linear-gradient(270deg,#070f1ff2,#0b1a33cc 48%,transparent)}html[dir=rtl] .hero-bg{object-position:30% center}html[dir=rtl] .slogan:before{order:2}html[dir=rtl] .manager{border-left:0;border-right:2px solid var(--gold);padding-left:0;padding-right:23px}html[dir=rtl] .seal{left:auto;right:-30px}html[dir=rtl] .about-photo:before{inset:18px 18px -18px -18px}html[dir=rtl] .kicker{letter-spacing:0}html[dir=rtl] .marquee-track{animation-name:marquee-rtl}html[dir=rtl] .service-card:after{left:auto;right:0}html[dir=rtl] .float-wa{right:auto;left:28px}html[dir=rtl] .hero h1{text-align:right}
 @keyframes marquee-rtl{to{transform:translateX(50%)}}
 @media(max-width:900px){.nav{gap:18px}.about-grid,.contact-grid{gap:45px;grid-template-columns:1fr 1fr}.service-grid{gap:0 24px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
-@media(max-width:700px){.wrap{width:min(100% - 38px,560px)}header{padding:13px 0}.brand svg{width:40px;height:40px}.brand-name b{font-size:14px}.brand-name small{font-size:8px}.nav{display:none}.menu-toggle{display:block}.headrow{gap:10px}.hero{min-height:100svh;align-items:flex-end;padding:130px 0 48px}.hero:before{background:linear-gradient(90deg,#070f1feF,#0b1a33c9 70%,#0b1a3366)}.hero h1 .one{font-size:clamp(43px,12vw,65px)}.hero h1 .two{font-size:clamp(34px,9vw,51px)}.slogan{gap:0}.slogan:before{display:none}.lead{font-size:15px}.actions{gap:10px}.btn{padding:13px 18px;font-size:13px}.based{margin-top:40px;font-size:9px;letter-spacing:.1em}.based a{display:none}.about,.services,.contact{padding:78px 0}.about-grid,.contact-grid,.services-head{grid-template-columns:1fr;gap:45px}.about-photo{max-width:460px;margin:0 auto 20px}.about-copy{padding-top:0}.about h2,.section-title{font-size:39px}.about-copy>p,.services-head p,.contact-intro{font-size:16px}.values{margin-top:35px}.values li{padding:16px 11px}.values h3{font-size:21px}.values p{font-size:12px}.service-grid{grid-template-columns:1fr 1fr;gap:0 20px;margin-top:30px}.service-card{min-height:250px;padding:27px 0}.service-card h3{font-size:25px}.service-card p{font-size:14px}.service-icon{width:48px;height:48px}.number{font-size:52px}.contact-grid{margin-top:42px}.form-grid{gap:22px 15px}.footer-grid{grid-template-columns:1fr 1fr;gap:35px}.footer-grid>div:first-child{grid-column:1/-1}}
+
+@media screen and (max-width:700px){
+
+  .wrap{
+    width:min(100% - 38px,560px);
+  }
+
+  header{
+    padding:13px 0;
+  }
+
+  .brand svg{
+    width:40px;
+    height:40px;
+  }
+
+  .brand-name b{
+    font-size:14px;
+  }
+
+  .brand-name small{
+    font-size:8px;
+  }
+
+  .nav{
+    display:none !important;
+  }
+
+  .menu-toggle{
+    display:block !important;
+  }
+
+  .headrow{
+    gap:10px;
+  }
+
+  .hero{
+    min-height:100svh;
+    height:auto;
+    max-height:none;
+    align-items:flex-start;
+    padding:130px 0 48px;
+    overflow:visible;
+  }
+
+  .hero:before{
+    background:linear-gradient(
+      90deg,
+      #070f1feF,
+      #0b1a33c9 70%,
+      #0b1a3366
+    );
+  }
+
+  .hero h1 .one{
+    font-size:clamp(43px,12vw,65px);
+  }
+
+  .hero h1 .two{
+    font-size:clamp(34px,9vw,51px);
+  }
+
+  .slogan{
+    gap:0;
+  }
+
+  .slogan:before{
+    display:none;
+  }
+
+  .lead{
+    font-size:15px;
+  }
+
+  .actions{
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    padding:13px 18px;
+    font-size:13px;
+  }
+
+  .based{
+    margin-top:40px;
+    font-size:9px;
+    letter-spacing:.1em;
+  }
+
+  .based a{
+    display:none;
+  }
+
+  .about,
+  .services,
+  .contact{
+    padding:78px 0;
+  }
+
+  .about-grid,
+  .contact-grid,
+  .services-head{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .about-photo{
+    max-width:460px;
+    margin:0 auto 20px;
+  }
+
+  .about-copy{
+    padding-top:0;
+  }
+
+  .about h2,
+  .section-title{
+    font-size:39px;
+  }
+
+  .about-copy>p,
+  .services-head p,
+  .contact-intro{
+    font-size:16px;
+  }
+
+  .values{
+    margin-top:35px;
+  }
+
+  .values li{
+    padding:16px 11px;
+  }
+
+  .values h3{
+    font-size:21px;
+  }
+
+  .values p{
+    font-size:12px;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr 1fr;
+    gap:0 20px;
+    margin-top:30px;
+  }
+
+  .service-card{
+    min-height:250px;
+    padding:27px 0;
+  }
+
+  .service-card h3{
+    font-size:25px;
+  }
+
+  .service-card p{
+    font-size:14px;
+  }
+
+  .service-icon{
+    width:48px;
+    height:48px;
+  }
+
+  .number{
+    font-size:52px;
+  }
+
+  .contact-grid{
+    margin-top:42px;
+  }
+
+  .form-grid{
+    gap:22px 15px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+  }
+
+  .footer-grid>div:first-child{
+    grid-column:1/-1;
+  }
+}
 @media(max-width:430px){.service-grid{grid-template-columns:1fr}.service-card{min-height:0}.values{grid-template-columns:1fr}.values li{padding:18px}.form-grid{grid-template-columns:1fr}.field-wrap.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.boarding-head{font-size:10px}.route strong{font-size:35px}.float-wa{width:54px;height:54px;right:17px;bottom:17px}html[dir=rtl] .float-wa{left:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
 </style>
@@ -396,4 +583,5 @@ render();
 </style>
 </body>
 </html>
+
 
