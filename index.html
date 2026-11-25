@@ -223,17 +223,17 @@ main > section.active {
   display: block !important;
 }
 
-/* ACCUEIL SANS DEFILEMENT */
+
+/* ACCUEIL - HAUTEUR ADAPTATIVE */
 main > section#home.active {
   display: flex !important;
   align-items: center;
-  height: calc(100svh - var(--panel-header));
+  height: auto;
   min-height: calc(100svh - var(--panel-header));
-  max-height: calc(100svh - var(--panel-header));
-  overflow: hidden;
-  padding: 0 !important;
+  max-height: none;
+  overflow: visible;
+  padding: 35px 0 !important;
 }
-
 main > section#home > .wrap {
   width: min(1180px, calc(100% - 48px));
   margin: auto;
