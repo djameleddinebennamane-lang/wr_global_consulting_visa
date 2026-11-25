@@ -620,7 +620,7 @@ document.getElementById('menuToggle').textContent='☰';document.getElementById(
 const panelIds=['home','about','services','contact'];
 function showPanel(id){if(!panelIds.includes(id))id='home';document.querySelectorAll('main>section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));history.replaceState(null,'','#'+id);}
 document.querySelectorAll('.nav a,.brand[href="#home"],.hero a[href="#services"],.service-card a').forEach(a=>a.addEventListener('click',e=>{const id=(a.getAttribute('href')||'').slice(1);if(panelIds.includes(id)){e.preventDefault();showPanel(id)}}));
-document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;render()}));
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;localStorage.setItem('siteLanguage',lang);render()}));
 document.getElementById('c-service').addEventListener('change',e=>{const d=DATA[lang];document.getElementById('serviceName').value=e.target.value==='other'?d.other:e.target.value!==''?d.services[+e.target.value][0]:''});
 document.getElementById('menuToggle').addEventListener('click',()=>{const n=document.getElementById('mobileNav');n.hidden=!n.hidden;document.getElementById('menuToggle').setAttribute('aria-expanded',String(!n.hidden));document.getElementById('menuToggle').textContent=n.hidden?'☰':'×'});
 document.getElementById('mobileNav').addEventListener('click',e=>{if(e.target.closest('a')){document.getElementById('mobileNav').hidden=true;document.getElementById('menuToggle').setAttribute('aria-expanded','false')}});
