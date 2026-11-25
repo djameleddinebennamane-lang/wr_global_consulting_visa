@@ -39,7 +39,40 @@ header{padding:12px 0;background:#0b1a33ed;border-bottom:1px solid #c8a96a33;bac
 header.scrolled{padding:12px 0}
 .headrow{gap:14px}
 .nav{gap:clamp(12px,2.5vw,35px)}
-.nav a{padding:10px 2px;font-size:14px;white-space:nowrap}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:clamp(12px,2.5vw,35px);
+}
+
+.nav a{
+  position:relative;
+  padding:10px 12px;
+  font-size:14px;
+  white-space:nowrap;
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:6px;
+  transition:all .3s ease;
+  cursor:pointer;
+}
+
+.nav a:hover{
+  color:#d4af37;
+  border-color:#d4af37;
+  background:rgba(212,175,55,.08);
+  box-shadow:0 0 12px rgba(212,175,55,.18);
+}
+
+.nav a.active{
+  color:#d4af37;
+  border-color:#d4af37;
+  background:rgba(212,175,55,.10);
+  box-shadow:0 0 14px rgba(212,175,55,.22);
+}
+
+.nav a.active:after{
+  transform:scaleX(1);
+}
 .nav a.active:after{transform:scaleX(1)}
 .lang{flex:none}
 main{
