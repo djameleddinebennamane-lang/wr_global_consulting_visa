@@ -254,40 +254,7 @@ html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Pl
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
 /* Défilement léger de l'accueil sur mobile */
 @media screen and (max-width:700px) {
-  html, body {
-    height: auto;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-  }
-
-  main {
-    height: auto !important;
-    min-height: 100svh;
-    overflow: visible !important;
-  }
-
-  main > section#home.active {
-    height: auto !important;
-    min-height: calc(100svh - 20px);
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 30px 0 48px !important;
-  }
-
-  .hero {
-    height: auto !important;
-    min-height: calc(100svh - 20px);
-    max-height: none !important;
-    overflow: visible !important;
-    align-items: flex-start !important;
-  }
-
-  .hero .wrap {
-    max-height: none !important;
-  }
-}
+  
 </style>
 
 <style id="four-rubriques-layout">
