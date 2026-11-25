@@ -25,7 +25,8 @@ footer{background:var(--ink);padding:65px 0 35px;border-top:1px solid #c8a96a26}
 @keyframes sheen{50%{background-position:100% 50%}}@keyframes orbit{to{transform:rotate(360deg)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes pulse{to{transform:scale(1.7);opacity:0}}
 html[dir=rtl],html[lang=ar]{--display:'Amiri','Bodoni Moda',serif;--body:'IBM Plex Sans Arabic','Jost',sans-serif}html[dir=rtl] .hero:before{background:linear-gradient(270deg,#070f1ff2,#0b1a33cc 48%,transparent)}html[dir=rtl] .hero-bg{object-position:30% center}html[dir=rtl] .slogan:before{order:2}html[dir=rtl] .manager{border-left:0;border-right:2px solid var(--gold);padding-left:0;padding-right:23px}html[dir=rtl] .seal{left:auto;right:-30px}html[dir=rtl] .about-photo:before{inset:18px 18px -18px -18px}html[dir=rtl] .kicker{letter-spacing:0}html[dir=rtl] .marquee-track{animation-name:marquee-rtl}html[dir=rtl] .service-card:after{left:auto;right:0}html[dir=rtl] .float-wa{right:auto;left:28px}html[dir=rtl] .hero h1{text-align:right}
 @keyframes marquee-rtl{to{transform:translateX(50%)}}
-@media(max-width:900px){.nav{gap:18px}.about-grid,.contact-grid{gap:45px;grid-template-columns:1fr 1fr}.service-grid{gap:0 24px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:900px){.nav{gap:18px}.about-grid{gap:45px;grid-template-columns:1fr 1fr}
+.contact-grid{gap:30px;grid-template-columns:1fr !important}.service-grid{gap:0 24px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
 
 
 @media screen and (max-width:700px){
