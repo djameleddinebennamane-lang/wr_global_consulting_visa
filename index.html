@@ -231,10 +231,21 @@ main > section#contact {
     min-height: calc(100svh - var(--panel-header));
     max-height: calc(100svh - var(--panel-header));
   }
+.headrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
 
-  .headrow {
-    gap: 7px;
-  }
+.brand {
+  order: 1;
+}
+
+.head-actions {
+  order: 2;
+  margin-left: auto;
+}
 .nav {
   order: 3;
   flex: 0 0 100%;
