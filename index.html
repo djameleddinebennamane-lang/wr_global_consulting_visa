@@ -486,16 +486,20 @@ textarea.field{min-height:64px}
     max-height: none !important;
   }
   }
-  @media screen and (max-width:700px) {
-  .hero {
-    padding-top: 0 !important;
-  }
-
+  
+@media screen and (max-width:700px) {
   .hero-bg {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: 99% !important;
+    height: auto !important;
     object-fit: contain !important;
     object-position: center top !important;
   }
-  }
+}
+  
 /* HARMONISATION COULEURS — FICHE CONTACT */
 .contact .boarding {
   background: linear-gradient(135deg, #10244a, #0b1a33);
