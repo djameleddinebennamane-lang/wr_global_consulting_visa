@@ -591,14 +591,20 @@ html[lang="fr"] .hero .based {
   right: 50%;
   transform: translateX(50%);
   }
-
 html[dir="rtl"] .contact .route {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
-html[dir="rtl"] .contact .route strong {
-  font: 600 43px "Playfair Display", serif;
+html[dir="rtl"] .contact .route > div:first-child {
+  order: 3;
+}
 
+html[dir="rtl"] .contact .route > .route-line {
+  order: 2;
+}
+
+html[dir="rtl"] .contact .route > div:last-child {
+  order: 1;
 }
 </style>
 </style>
